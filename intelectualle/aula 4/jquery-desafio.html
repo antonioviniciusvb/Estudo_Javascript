@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>jQuery</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				
+					/*$('#linha1 > div').animate({left:400},1500,function(){
+						$('#linha1 span').animate({left:100},500,function(){
+							$(this).css({'display':'none'});
+							$('#linha2 > div span').css({'display':'block'});
+							$('#linha2 > div').animate({left:400}, 1500);
+						});
+						
+					});	*/
+				$('#bol5').css({'display':'block'}).animate({top:211,left:250},500, function(){
+					$('#bol1').css({'display':'block'}).animate({top: 165,left: 271},500,function(){
+						$('#bol2').css({'display':'block'}).animate({top: 150,left: 317},500, function(){
+							$('#bol3').css({'display':'block'}).animate({top: 175,left: 360},500, function(){
+								$('#bol6').css({'display':'block'}).animate({top: 224,left: 369},500,function(){
+									$('#bol9').css({'display':'block'}).animate({top: 256,left: 353},500, function(){
+										$('#bol8').css({'display':'block'}).animate({top: 269,left: 320},500,function(){
+													$('#bol7').css({'display':'block'}).animate({top: 255,left: 273},500)
+								
+										});
+									});
+								});
+							});
+						});
+					});
+				});	
+			});
+			
+		</script>
+		
+		<style>
+			/**{position: relative;}
+			div[id*="linha"]{width: 500px;height: 100px;float: left;}
+			div[id*="linha"] > div{width:100px;height: 100px;background: #000;border-radius: 400px;}
+			
+			div[id*="linha"] > div > span{width:50px;height: 50px;background: #ff0000;border-radius: 40px;display: block;margin: auto;position: relative;top: 25px;z-index: 99;}
+			
+			div#linha2 span{display: none;};*/
+			*{position: absolute;}
+			
+			#linhaTracejada {width: 650px;height: 450px;margin: 130px 500px auto;;box-shadow: 0 0 5px #666;position: relative;background: blue;}
+			.bol{width: 50px;height: 50px;border-radius: 40px;display: block; background: #ff0000;}
+			#bol2, #bol8{left: 300px;}
+			#bol3, #bol6, #bol9{left: 600px;}
+			#bol4, #bol5, #bol6{top: 200px;}
+			#bol4{left: 300px;width: 70px;height: 70px;background: black;}
+			#bol7, #bol8, #bol9{top: 400px;}
+			#bol1,#bol2,#bol3,#bol5,#bol6,#bol7,#bol8,#bol9{display: none;}			
+		</style>
+	</head>
+	
+	<body>		
+		
+		<div id="linhaTracejada">
+				<div id="bol1" class="bol"></div>
+				<div id="bol2"class="bol"></div>
+				<div id="bol3" class="bol"></div>
+				<div id="bol5" class="bol"></div>
+				<div id="bol4" class="bol"></div>
+				<div id="bol6" class="bol"></div>
+	
+				<div  id="bol7" class="bol"></div>
+				<div  id="bol8" class="bol"></div>
+				<div  id="bol9" class="bol"></div>
+				
+		</div>
+	
+		</div>
+	</body>
+</html>

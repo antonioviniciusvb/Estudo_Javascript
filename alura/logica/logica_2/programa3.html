@@ -1,0 +1,84 @@
+<script src="draw.js"></script>
+<canvas></canvas>
+
+<script>
+
+    var colors = ["blue", "red", "green"];
+    var radius = 10;
+    var indexColor = 0;
+
+    function plotArc(event) {
+
+        updateRadius(event);
+        
+        var x = event.pageX - screen.offsetLeft;
+        var y = event.pageY - screen.offsetTop;
+        console.log(event);
+
+        drawArc({ canvas: paint, x: x, y: y, radius: radius, iniAngle: 0, endAngle: 2 * 3.14, color: colors[indexColor] });
+    }
+
+
+    function changeColorArc() {
+
+        updateIndexColor();
+        alert(`Cor alterada para ${colors[indexColor]}`);
+    }
+
+    function updateIndexColor() {
+
+        indexColor++;
+
+        if (indexColor >= colors.length)
+            indexColor = 0;
+
+        return false;
+    }
+
+    function updateRadius(event) {
+
+        //Inc radius
+        if (event.shiftKey) {
+
+            radius += 10;
+
+            if(radius > 40)
+                radius = 40;
+
+        }
+
+        //Dec radius
+        if(event.altKey){
+
+            radius -= 5;
+
+            if(radius < 10)
+                radius = 10;
+        }
+
+    }
+
+
+    var widthScreen = 600, heightScreen = 400;
+
+    //Screen
+    var screen = document.querySelector("canvas");
+    screen.width = widthScreen;
+    screen.height = heightScreen;
+
+    //Paint
+    var paint = screen.getContext("2d");
+
+    //Background
+    drawRect({ canvas: paint, x: 0, y: 0, width: widthScreen, height: heightScreen, color: "grey", colorBorder: "black" });
+
+
+    screen.onclick = plotArc;
+    screen.oncontextmenu = changeColorArc;
+
+    console.log(screen);
+
+
+
+
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>jquery after e before</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				
+				var item = $('.item:eq(0)').html();
+				console.log(item);
+				$(document).on('click', '.item button', function(){
+					$(this).parent('.item').remove();
+				});
+				
+				$('.mais').on('click', function(){
+					$(this).before('<div class="item">'+item+'</div>');
+				});
+			});
+			
+		</script>
+		<style>
+			.box{
+				width: 400px;
+				height: 400px;
+				background: #000;
+			}
+		</style>
+		
+	</head>
+	
+	<body>		
+		<form method="get">
+			<div class="item">
+				Nome:<input name="nome[]" type="text">
+				Valor:<input name="valor[]" type="text">
+				Qtd:<input name="qtd[]" type="text">
+				<button type="button">remover</button>
+			</div>
+			
+			<button type="button" class="mais">adicionar</button>
+		</form>
+	</body>
+</html>

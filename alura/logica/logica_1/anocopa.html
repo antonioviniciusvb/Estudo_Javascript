@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<script>
+
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+		for (var i = 0; i < pulos; i++) {
+			
+			document.write("<br>");
+		}
+	}
+
+	//Método para exibir uma mensagem no documento HTML
+	function mostra(mensagem) {
+		
+		if(mensagem != null){
+
+			document.write(mensagem);
+			pulaLinha(1);
+		}
+	}
+
+    var iniCopa = 1930, totalCopas = 0, intervaloDeAnosEntreAsCopas = 4;
+
+    var dataLimite = parseInt(prompt("Entre com a data limite"));
+
+    let index = 1;
+
+    while(iniCopa < dataLimite){
+
+        mostra(`A ${index}º copa foi em ${iniCopa}`);
+        iniCopa += 4;
+        index++;
+    }
+        
+    mostra(`A próxima Copa ocorrerá em ${iniCopa}`);
+     
+
+</script>

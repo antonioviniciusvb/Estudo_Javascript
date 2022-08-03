@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+	<title>error</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		
+		var x = prompt('Entre um número maior que 0 e menor que 11:');
+		
+		try{
+		
+			if(x <= 0){
+				throw('er1');
+				
+				/*
+				throw{
+				  name: 'er1', 
+				  message: 'O número deve ser maior que 0';
+				  }*/
+				
+				
+			}else		
+				if(x > 10 ){
+					throw('er2');
+			}else
+			 	if(isNaN(parseInt(x)))
+				{
+					throw('er3')
+				}
+			
+		}catch(e){
+			/*if(e.name == 'er1'){
+				alert(e.message);
+			}*/
+			
+			if(e == 'er1'){
+				alert('Entre com um número > que 0 e < que 11');
+			}
+			
+			if(e == 'er2'){
+					alert('Entre com um número > que 0 e < que 11');
+			}
+			
+			if(e == 'er3'){
+					alert('Entre somente com números');
+			}
+
+		
+			
+	    
+		}
+	</script>
+	</head>
+	
+	
+	<body>
+	</body>
+</html>

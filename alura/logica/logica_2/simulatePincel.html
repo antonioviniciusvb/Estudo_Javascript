@@ -1,0 +1,52 @@
+<script src="draw.js"></script>
+<script src="log.js"></script>
+<canvas></canvas>
+<br>Escolha uma cor <input type="color">
+
+<script>
+
+    function plotArc(event) {
+
+        mouseX = event.pageX - screen.offsetLeft;
+        mouseY = event.pageY - screen.offsetTop;
+
+        if (isMouseDown)
+            drawArc({ canvas: paint, x: mouseX, y: mouseY, radius: radius, iniAngle: 0, endAngle: 2 * Math.PI, color: inputColor.value });
+
+    }
+
+    function enablePlot(event) {
+
+        isMouseDown = event.type == "mousedown";
+    }
+
+    function setSizeScreen(screen, width, height) {
+
+        screen.width = width;
+        screen.height = height;
+    }
+
+    var radius = 10;
+    var isMouseDown = false;
+    var mouseX = 0, mouseY = 0;
+
+    var inputColor = document.querySelector("input");
+    logObject(inputColor);
+
+    //Screen
+    var screen = document.querySelector("canvas");
+    var widthScreen = 600, heightScreen = 400;
+
+    setSizeScreen(screen, widthScreen, heightScreen);
+
+    //Paint
+    var paint = screen.getContext("2d");
+
+    //Background
+    drawRect({ canvas: paint, x: 0, y: 0, width: widthScreen, height: heightScreen, color: "grey", colorBorder: "black" });
+
+    screen.onmousemove = plotArc;
+    screen.onmousedown = enablePlot;
+    screen.onmouseup = enablePlot;
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>jQuery</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				
+					$('#linha1 > div').animate({left:400},1500,function(){
+						$('#linha1 span').animate({left:100},500,function(){
+							$(this).css({'display':'none'});
+							$('#linha2 > div span').css({'display':'block'});
+							$('#linha2 > div').animate({left:400}, 1500);
+						});
+						
+					});	
+			});
+			
+		</script>
+		
+		<style>
+			*{position: relative;}
+			div[id*="linha"]{width: 500px;height: 100px;float: left;}
+			div[id*="linha"] > div{width:100px;height: 100px;background: #000;border-radius: 400px;}
+			
+			div[id*="linha"] > div > span{width:50px;height: 50px;background: #ff0000;border-radius: 40px;display: block;margin: auto;position: relative;top: 25px;z-index: 99;}
+			
+			div#linha2 span{display: none;};
+		</style>
+	</head>
+	
+	<body>		
+		<div id="linha1">
+			<div>
+				<span></span>
+			</div>
+		
+		</div>
+		
+		<div id="linha2">
+			<div>
+				<span></span>
+			</div>
+		</div>
+	</body>
+</html>

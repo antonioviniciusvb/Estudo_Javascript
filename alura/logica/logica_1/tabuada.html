@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<script>
+
+    //Método para exibir uma mensagem no documento HTML
+    function mostra(mensagem) {
+
+        if(mensagem != null){
+
+            document.write(mensagem);
+            pulaLinha(1);
+        }
+    }
+
+    mostra("***** Tabuada ******");
+
+    var numero = parseInt(prompt("De qual o número será a tabuada ?"));
+
+    while(isNaN(numero)){
+        
+        alert("Valor invalido! Insira um número valido");
+        
+        numero = parseInt(prompt("De qual o número será a tabuada ?"));
+    }
+
+    for (let count = 0; count < 10; count++) {
+        
+        mostra(`${numero} x ${count + 1} = ${(count + 1) * numero}`);
+    }
+   
+    mostra("fim");
+
+</script>

@@ -1,0 +1,93 @@
+<script src="draw.js"></script>
+<canvas></canvas>
+
+<script>
+
+    var statistics = [
+
+        { year: 2015, browser: "Chrome", value: 50, color: "blue" },
+        { year: 2015, browser: "Firefox", value: 25, color: "green" },
+        { year: 2015, browser: "Safari", value: 20, color: "yellow" },
+        { year: 2015, browser: "Others", value: 5, color: "red" },
+
+        { year: 2016, browser: "Chrome", value: 65, color: "blue" },
+        { year: 2016, browser: "Firefox", value: 20, color: "green" },
+        { year: 2016, browser: "Safari", value: 13, color: "yellow" },
+        { year: 2016, browser: "Others", value: 2, color: "red" }
+    ];
+
+    function updatePos({ position, size }) {
+
+        return position = position + size;
+
+    }
+
+    function calcPercentage({ percentage, total }) {
+
+        return Math.round((percentage / 100) * total);
+    }
+
+
+    function drawGraph({ x, y, width, year }) {
+
+        var xRect = x, yRect = y, widthRect = width, heightRect = 0;
+
+        drawText({ canvas: paint, x: xRect, y: widthRect - 30, text: year, font: "20px Georgia", color: "black" });
+
+        var query = statistics.filter(x => x.year === year);
+
+        for (let index = 0; index < query.length; index++) {
+
+            heightRect = calcPercentage({ percentage: query[index].value, total: 300 });
+
+            drawRect({
+                canvas: paint, x: xRect, y: yRect, width: widthRect, height: heightRect, color: query[index].color,
+                colorBorder: "black"
+            });
+
+            yRect = updatePos({ position: yRect, size: heightRect });
+
+        }
+    }
+
+
+    function drawDescription({ x, y, font }) {
+
+        drawRect({ canvas: paint, x: x - 20, y: y - 10, width: 10, height: 10, color: "blue", colorBorder: "blue" });
+        drawText({ canvas: paint, x: x, y: y, text: "Chrome", font: font, color: "blue" });
+
+        drawRect({ canvas: paint, x: x - 20, y: y + 10, width: 10, height: 10, color: "green", colorBorder: "green" });
+        drawText({ canvas: paint, x: x, y: y + 20, text: "Firefox", font: font, color: "green" });
+
+        drawRect({ canvas: paint, x: x - 20, y: y + 30, width: 10, height: 10, color: "yellow", colorBorder: "yellow" });
+        drawText({ canvas: paint, x: x, y: y + 40, text: "Safari", font: font, color: "yellow" });
+        
+        drawRect({ canvas: paint, x: x - 20, y: y + 50, width: 10, height: 10, color: "red", colorBorder: "red" });
+        drawText({ canvas: paint, x: x, y: y + 60, text: "Outros", font: font, color: "red" });        
+    }
+
+
+    //Screen
+    var widthScreen = 520, heightScreen = 360;
+
+    var screen = document.querySelector("canvas");
+    screen.width = widthScreen;
+    screen.height = heightScreen;
+
+    //Paint
+    var paint = screen.getContext("2d");
+
+    //Background
+    drawRect({ canvas: paint, x: 0, y: 0, width: widthScreen, height: heightScreen, color: "white", colorBorder: "black" });
+
+    //2015
+    drawGraph({ x: 130, y: 50, width: 70, year: 2015 });
+
+    //2016
+    drawGraph({ x: 250, y: 50, width: 70, year: 2016 });
+
+    drawDescription({ x: 450, y: 290, font: "15px Georgia"});
+
+
+
+</script>

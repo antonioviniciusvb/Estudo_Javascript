@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Acordion</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				$('li').on('click', function(){
+					if(!$(this).hasClass('active')){
+						var id = $(this).attr('data-id');
+						$('.item.active').toggle(0,function(){
+							$(this).css({'display':'none'});
+						});
+						
+						$('li.active').removeClass('active');
+						$(this).addClass('active');
+						$('#item'+id).addClass('active').css({'display':'none'}).toggle(300);
+					}
+				});
+				
+				
+			});
+			
+		</script>
+		<style>
+			
+			body{width: 1000px;margin: 0 auto;}
+			ul{margin: 20px 0 0 0; padding: 0; list-style: none; width: 100%; border-bottom: 4px solid #ccc;}
+			ul li{display: inline-block;padding: 10px 30px; background-color: forestgreen; color: #fff; cursor: pointer;}
+			ul li.active{background: #ccc;}
+			div{background: #ccc;overflow: hidden;padding: 20px; box-sizing: border-box;color: #fff;display: none;}
+			div.active{display: block;}
+		
+			
+		</style>
+	</head>
+	
+	<body>		
+			<ul>
+				<li data-id="1" class="active">Item 1</li>
+				<li data-id="2">Item 2</li>
+				<li data-id="3">Item 3</li>
+			</ul>
+			<div id="item1" class="item active">
+				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus mollis fermentum. Pellentesque ac lorem tristique, vestibulum quam ac, fringilla enim. Sed ac odio ex. Nullam massa libero, egestas at ipsum id, commodo placerat nibh. Nullam luctus, erat pulvinar tempus aliquet, dolor odio suscipit justo, at dictum diam dui quis eros. Nullam et vehicula felis. Cras tincidunt tincidunt elit eget pellentesque. Vestibulum a diam ligula. Integer tincidunt risus libero, non consequat lorem feugiat non. Ut elementum tortor non leo iaculis elementum.
+
+Nunc eget est a tortor lobortis fringilla sit amet eu dolor. Cras vitae semper dolor. Fusce blandit, dui ut faucibus placerat, massa metus cursus turpis, sit amet ultrices est odio sit amet massa. Mauris bibendum porta ultricies. Pellentesque vestibulum bibendum eros eleifend tincidunt. Maecenas turpis orci, malesuada sed imperdiet eget, aliquam a ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque eleifend magna a enim lobortis euismod. Mauris ut dolor pharetra, dapibus felis sed, scelerisque risus. Mauris sit amet tortor ipsum</p>
+			</div>
+			<div id="item2" class="item">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus mollis fermentum. Pellentesque ac lorem tristique, vestibulum quam ac, fringilla enim. Sed ac odio ex. Nullam massa libero, egestas at ipsum id, commodo placerat nibh. Nullam luctus, erat pulvinar tempus aliquet, dolor odio suscipit justo, at dictum diam dui quis eros. Nullam et vehicula felis. Cras tincidunt tincidunt elit eget pellentesque. Vestibulum a diam ligula. Integer tincidunt risus libero, non consequat lorem feugiat non. Ut elementum tortor non leo iaculis elementum.
+
+Nunc eget est a tortor lobortis fringilla sit amet eu dolor. Cras vitae semper dolor. Fusce blandit, dui ut faucibus placerat, massa metus cursus turpis, sit amet ultrices est odio sit amet massa. Mauris bibendum porta ultricies. Pellentesque vestibulum bibendum eros eleifend tincidunt. Maecenas turpis orci, malesuada sed imperdiet eget, aliquam a ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque eleifend magna a enim lobortis euismod. Mauris ut dolor pharetra, dapibus felis sed, scelerisque risus. Mauris sit amet tortor ipsum</p>	
+			</div>
+		<div id="item3" class="item">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus mollis fermentum. Pellentesque ac lorem tristique, vestibulum quam ac, fringilla enim. Sed ac odio ex. Nullam massa libero, egestas at ipsum id, commodo placerat nibh. Nullam luctus, erat pulvinar tempus aliquet, dolor odio suscipit justo, at dictum diam dui quis eros. Nullam et vehicula felis. Cras tincidunt tincidunt elit eget pellentesque. Vestibulum a diam ligula. Integer tincidunt risus libero, non consequat lorem feugiat non. Ut elementum tortor non leo iaculis elementum.
+
+Nunc eget est a tortor lobortis fringilla sit amet eu dolor. Cras vitae semper dolor. Fusce blandit, dui ut faucibus placerat, massa metus cursus turpis, sit amet ultrices est odio sit amet massa. Mauris bibendum porta ultricies. Pellentesque vestibulum bibendum eros eleifend tincidunt. Maecenas turpis orci, malesuada sed imperdiet eget, aliquam a ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque eleifend magna a enim lobortis euismod. Mauris ut dolor pharetra, dapibus felis sed, scelerisque risus. Mauris sit amet tortor ipsum</p>	
+	</body>
+</html>

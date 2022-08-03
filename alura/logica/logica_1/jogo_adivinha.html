@@ -1,0 +1,61 @@
+<meta charset="utf-8">
+<script>
+
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+		for (var i = 0; i < pulos; i++) {
+			
+			document.write("<br>");
+		}
+	}
+
+	//Método para exibir uma mensagem no documento HTML
+	function mostra(mensagem) {
+		
+		if(mensagem != null){
+
+			document.write(mensagem);
+			pulaLinha(1);
+		}
+	}
+
+    //Sorteia um número
+	function sorteia(n){
+
+		return Math.floor(Math.random() * n);
+	}
+
+	var numeroPensado = sorteia(10);   
+
+	console.log(numeroPensado);
+
+	var tentativas = 1;
+
+	while(tentativas <= 3){
+
+		var chute = parseInt(prompt("Digite seu chute, entre 0-9"));
+
+		while(isNaN(chute)){
+			
+			alert("Valor invalido! Insira um número valido");
+			
+			chute = parseInt(prompt("Digite seu chute, entre 0-9"));
+		}
+
+		if(chute == numeroPensado){
+
+			mostra("Parabéns! Você acertou!");
+
+			break;
+		
+		}else{
+
+			// mostra("Você Errou! O número pensado era " + numeroPensado);	
+			alert("Você Errou!");	
+		}
+
+		tentativas++;
+}
+
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>jQuery</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				
+				$('div').hover(
+					function(){
+						$(this).animate(
+							{
+								'width': '400px',
+								'height':'400px',
+								 borderWidth:30,
+							     },1000);
+					},					
+					function(){
+						$(this).animate(
+							{
+								'width': '200px',
+								'height':'200px',
+							     borderWidth:0},1000);
+					}
+				);
+						
+			});
+			
+		</script>
+		
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background: #000;
+				border-radius: 1000px;
+				border:0px solid #ff0000;
+			}
+			
+			
+		</style>
+	</head>
+	
+	<body>		
+		<div></div>
+	</body>
+</html>

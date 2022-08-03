@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<script>
+
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+		for (var i = 0; i < pulos; i++) {
+			
+			document.write("<br>");
+		}
+	}
+
+	//Método para exibir uma mensagem no documento HTML
+	function mostra(mensagem) {
+		
+		if(mensagem != null){
+
+			document.write(mensagem);
+			pulaLinha(1);
+		}
+	}
+
+    
+    var geracoes = Math.round((2022 - 1500)/28);
+
+    mostra("Desde de 1500 até os tempos atuais, foram " + geracoes + " geracoes.");
+
+
+</script>

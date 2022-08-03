@@ -1,0 +1,31 @@
+<script src="draw.js"></script>
+<canvas></canvas>
+
+<script>
+
+    function drawFloor() {
+
+        drawArc({ canvas: paint, x: xArc, y: yArc, radius: 20, iniAgle: 0, endAngle: 2 * 3.14, color: "red" });
+        drawArc({ canvas: paint, x: xArc - 40, y: yArc, radius: 20, iniAgle: 0, endAngle: 2 * 3.14, color: "orange" });
+        drawArc({ canvas: paint, x: xArc + 40, y: yArc, radius: 20, iniAgle: 0, endAngle: 2 * 3.14, color: "black" });
+        drawArc({ canvas: paint, x: xArc, y: yArc + 40, radius: 20, iniAgle: 0, endAngle: 2 * 3.14, color: "blue" });
+        drawArc({ canvas: paint, x: xArc, y: yArc - 40, radius: 20, iniAgle: 0, endAngle: 2 * 3.14, color: "yellow" });
+
+    }
+
+    var widthScreen = 600, heightScreen = 400;
+
+    //Screen
+    var screen = document.querySelector("canvas");
+    screen.width = widthScreen;
+    screen.height = heightScreen;
+
+    //Paint
+    var paint = screen.getContext("2d");
+    var xArc = widthScreen / 2, yArc = heightScreen / 2;
+
+    drawRect({ canvas: paint, x: 0, y: 0, width: widthScreen, height: heightScreen, color: "#CDCDCD" });
+
+    drawFloor();
+    
+</script>

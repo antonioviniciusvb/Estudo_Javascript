@@ -1,0 +1,62 @@
+<meta charset="utf-8">
+<script>
+
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+		for (var i = 0; i < pulos; i++) {
+			
+			document.write("<br>");
+		}
+	}
+
+	//Método para exibir uma mensagem no documento HTML
+	function mostra(mensagem) {
+		
+		if(mensagem != null){
+
+			document.write(mensagem);
+			pulaLinha(1);
+		}
+	}
+
+	//para dar o Alert
+	//alert("A minha idade é 28 anos.");
+	
+	//para exibir a string no documento do html
+	//document.write("A minha idade é 28 anos.");
+
+	//é possivel inserir tags, no exemplo é a quebra de linha
+	//document.write("A minha idade é <br> 28 anos.");
+
+	//a fuction pode receber outros tipos de parametros, como por exemplo inteiros
+	//document.write(18);
+
+    //exibindo operacoes 
+	//document.write(18*10);
+
+	//concantenando string
+	//document.write("Antonio Vinicius" + "Veras Bandeira");
+
+    //parsing int em texto
+	//document.write("1" + 10);
+
+   /* document.write((10 + 100 + 300) + " teste concatenacao");
+	document.write("<br>");
+	document.write("Testando o write com quebra de linha.");
+	document.write("<br>");
+    document.write("O total é: " + (10 + 100 + 300));*/
+
+
+    var ano = 2016;
+
+    mostra("Flávio tem " + (ano - 1977) + " anos");
+
+	mostra("Joaquim tem " + (ano - 1996) + " anos");
+    
+    ano = 2017;
+
+    mostra("Barney tem " + (ano - 1976) + " anos");
+    
+
+</script>

@@ -1,0 +1,125 @@
+<canvas></canvas>
+
+<script>
+
+    //#region Functions
+
+    function updatePosXBall() {
+
+        touchBorder();
+        xBall = incrementPos(xBall);
+
+    }
+
+    function incrementPos(pos) {
+
+        return pos += speedBall * direction;
+    }
+
+    function touchBorder() {
+
+        if (xBall + radius > widthScreen) {
+
+            direction = -1;
+            return true;
+        }
+
+        if (xBall - radius < 0) {
+            direction = 1;
+            return true;
+        }
+
+        return false;
+    }
+
+
+    function refreshScreen() {
+
+        clearScreen();
+
+        drawArc({ x: xBall, y: yBall, radius: radius, iniAngle: 0, endAngle: 2 * Math.PI, color: "red" });
+
+        updatePosXBall();
+    }
+
+    function defineBallPosition({ offSetPage, radiusBall, sizePage }) {
+
+        return (sizePage - offSetPage - radiusBall) / 2;
+    }
+
+    function clearScreen() {
+
+        paint.clearRect(0, 0, 600, 400);
+        
+        //Set Background
+        drawRect({ x: 0, y: 0, width: widthScreen, height: heightScreen, color: "lightgrey", colorBorder: "black" });
+
+    }
+
+    function setBallPositionToHalfScreen() {
+
+        xBall = defineBallPosition({ offSetPage: screen.offsetLeft, radiusBall: radius, sizePage: widthScreen });
+        yBall = defineBallPosition({ offSetPage: screen.offsetTop, radiusBall: radius, sizePage: heightScreen });
+
+    }
+
+    function setDimensionScreen(width, height) {
+
+        screen.width = width;
+        screen.height = height;
+    }
+
+    //#region  Functions for Draw in Canvas
+
+    function setCanvasFillStyle(color = "black") {
+
+        paint.fillStyle = color;
+    }
+
+    function resetCanvasPath() {
+
+        paint.beginPath();
+    }
+
+    function drawArc({ x = 0, y = 0, radius = 10, iniAngle = 0, endAngle, color = "black" }) {
+
+        setCanvasFillStyle(color);
+        resetCanvasPath();
+        paint.arc(x, y, radius, iniAngle, endAngle);
+        paint.fill();
+    }
+
+    function drawRect({ x = 0, y = 0, width, height, color = "black", colorBorder = "black" }) {
+
+        setCanvasFillStyle(color);
+        paint.fillRect(x, y, width, height);
+        paint.strokeStyle = colorBorder;
+        paint.strokeRect(x, y, width, height);
+    }
+
+    //#endregion
+
+
+    //#endregion
+
+    //#region Variables
+    var radius = 10;
+    var xBall = 0, yBall = 0, speedBall = 10, senseBorde = false, direction = 1;
+    var widthScreen = 600, heightScreen = 400;
+
+    //Get canvas 
+    var screen = document.querySelector("canvas");
+
+    //Get Paint
+    var paint = screen.getContext("2d");
+
+
+    //#endregion
+
+    setDimensionScreen(widthScreen, heightScreen);
+
+    setBallPositionToHalfScreen();
+
+    setInterval(refreshScreen, 20);
+
+</script>

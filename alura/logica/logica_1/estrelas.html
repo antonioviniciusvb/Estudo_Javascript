@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+<script>
+
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+		for (var i = 0; i < pulos; i++) {
+			
+			document.write("<br>");
+		}
+	}
+
+	//Método para exibir uma mensagem no documento HTML
+	function mostra(mensagem) {
+		
+		if(mensagem != null){
+
+			document.write(mensagem);
+			pulaLinha(1);
+		}
+	}
+
+    for (let linhas = 0; linhas < 3; linhas++) {
+
+        for (let colunas = 0; colunas < 10; colunas++) {
+            
+            document.write("*");
+
+        }
+
+        pulaLinha(1);
+}
+</script>

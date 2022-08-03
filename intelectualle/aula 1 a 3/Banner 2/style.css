@@ -1,0 +1,42 @@
+.banner {
+	width: 1000px;
+	margin: 0 auto;
+	box-shadow:  0 0 5px #666;
+	position: relative;
+}
+
+.banner img{
+	max-width: 100%;
+	display: block;
+	
+}
+
+.banner .slide{
+	display: none;
+}
+
+.banner .slide.active{
+	display: block;
+}
+
+.banner .prev, 
+.banner .next{
+	position: absolute;
+	top: 48%;
+	left: 20px;
+	width: 30px;
+	height: 30px;
+	background: #fff;
+	border-radius: 50px;
+	z-index: 99;
+	cursor: pointer;
+}
+
+.banner .prev{
+	
+	
+}
+.banner .next{
+	left: inherit;
+	right: 20px;
+}

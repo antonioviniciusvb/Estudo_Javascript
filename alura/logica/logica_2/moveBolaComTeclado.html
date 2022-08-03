@@ -1,0 +1,112 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    //#region Funções para Desenhar e Limpar
+    function desenhaCirculo(x, y, raio) {
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function desenhaQuadrado(x = 0, y = 0, width, height, color = "black", colorBorder = "black") {
+
+        pincel.fillStyle = color;
+        pincel.fillRect(x, y, width, height);
+        pincel.strokeStyle = colorBorder;
+        pincel.strokeRect(x, y, width, height);
+    }
+
+    function limpaTela() {
+
+        pincel.clearRect(0, 0, widthScreen, heightScreen);
+        desenhaQuadrado(0, 0, widthScreen, heightScreen, "lightgrey", "black" );
+    }
+    //#endregion
+
+    function atualizaTela() {
+
+        limpaTela();
+        desenhaCirculo(x, y, raio);
+    }
+
+
+    function atualizaPosicao(posicao, tecla, taxaAtualizacao) {
+
+        var movimento = 1;
+
+        if (tecla == esquerda || tecla == cima) {
+
+            movimento = -1;
+        }
+
+        var posicaoTmp = posicao + taxaAtualizacao * movimento;
+
+        if (passouLimiteTela(posicaoTmp, tecla, raio)) {
+
+            posicaoTmp = posicao;
+        }
+
+        return posicaoTmp;
+
+    }
+
+    function passouLimiteTela(posicao, tecla, raio) {
+
+        if (tecla == esquerda)
+            return (posicao - raio < 0);
+
+        if (tecla == cima)
+            return (posicao - raio < 0);
+
+        if (tecla == direita)
+            return (posicao + raio > widthScreen);
+
+        if (tecla == baixo)
+            return (posicao + raio > heightScreen);
+
+        return false;
+    }
+
+    function leDoTeclado(evento) {
+
+
+        if (evento.keyCode == esquerda || evento.keyCode == direita) {
+
+            x = atualizaPosicao(x, evento.keyCode, taxa);
+
+        } else {
+
+            y = atualizaPosicao(y, evento.keyCode, taxa);
+
+        }
+
+    }
+
+    var tela = document.querySelector('canvas');
+    var widthScreen = 600, heightScreen = 400;
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, widthScreen, heightScreen);
+
+    var x = 20;
+    var y = 20;
+    var raio = 10;
+
+    // códigos do teclado
+
+    var esquerda = 37;
+    var cima = 38;
+    var direita = 39;
+    var baixo = 40;
+
+    // taxa de incremento
+    var taxa = 10;
+
+    document.onkeydown = leDoTeclado;
+
+    setInterval(atualizaTela, 20);
+
+</script>

@@ -1,0 +1,57 @@
+<meta charset="utf-8">
+<script>
+
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+		for (var i = 0; i < pulos; i++) {
+			
+			document.write("<br>");
+		}
+	}
+
+	//Método para exibir uma mensagem no documento HTML
+	function mostra(mensagem) {
+		
+		if(mensagem != null){
+
+			document.write(mensagem);
+			pulaLinha(1);
+		}
+	}
+
+    //1º exemplo - Imprimir os números pares de 0 até 100
+    // let count = 2;
+
+    // while(count <= 100){
+
+    //     mostra(count);
+        
+    //     count += 2;
+    // }
+
+    //2º Segundo exemplo - Imprimir os números de 30 a 40, excluindo os números 33 e 37 
+    // let count = 30;
+
+    // while(count <= 40){
+       
+    //     if(count != 33 && count != 37)
+    //         mostra(count);
+        
+    //     count++;
+    // }
+
+    //3º Exemplo -- Imprimir em ordem decrescente de 20 a 0
+
+    var count = 20;
+
+    while (count >= 0) {
+
+        mostra(count);
+        count--;
+    }
+        
+    mostra("FIM");
+     
+
+</script>

@@ -1,0 +1,55 @@
+<canvas ></canvas>
+
+<script>
+    
+
+    function setPaintFillStyle(color = "black"){
+
+        paint.fillStyle = color;
+
+    }
+
+    function drawRect(x, y, width, height, color = "black"){
+
+        setPaintFillStyle(color);
+        paint.fillRect(x, y, width, height);
+
+    }
+
+
+    var widthScreen = 600, heightScreen = 400;
+
+    //Screen
+    var screen = document.querySelector("canvas");
+    screen.width = widthScreen;
+    screen.height = heightScreen;
+
+    //Paint
+    var paint = screen.getContext("2d");
+    
+    //bakcground
+    drawRect(0, 0, widthScreen, heightScreen);
+
+    var x = (widthScreen - 350) / 2;
+    var y = (heightScreen - 300) / 2;
+
+    //1
+    drawRect(x, y, 350, 300, "green");
+
+    //2
+    drawRect(x + 50, y + 60, 90, 90);
+
+    //3
+    drawRect(x + 210, y + 60, 90, 90);
+
+    //4
+    drawRect(x + 140, y + 150, 70, 100, "yellow");
+
+    //5
+    drawRect(x + 100, y + 190, 40, 110, "red");
+
+    //6
+    drawRect(x + 210, y + 190, 40, 110, "red");
+
+
+</script>

@@ -1,0 +1,55 @@
+<meta charset="UTF-8">
+<script>
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+    for (var i = 0; i < pulos; i++) {
+        
+        document.write("<br>");
+    }
+    }
+
+    //Método para exibir uma mensagem no documento HTML
+    function mostra(mensagem) {
+
+    if(mensagem != null){
+
+        document.write(mensagem);
+        pulaLinha(1);
+    }
+    }
+
+    var loginCadastrado = "alura";
+    var senhaCadastrada = "alura321";
+    var credenciais = false;
+    var tentativas = 2;
+
+    while (credenciais == false) {
+    
+        if(tentativas == 0){
+            
+            mostra("Cadastro bloqueado por exceder o número de tentativas!");
+            break;
+
+        }
+        var loginInformado = prompt("Informe seu login");
+        var senhaInformada = prompt("Informe sua senha");
+
+
+        if( loginCadastrado == loginInformado && senhaCadastrada == senhaInformada ) {
+
+            alert("Bem-vindo ao sistema " + loginInformado);
+            mostra("Bem-vindo ao sistema " + loginInformado);
+            
+            credenciais = true;
+
+        } else {
+
+            alert("Login inválido. Tente novamente");
+
+        }
+
+        tentativas--;
+    }
+    
+</script>

@@ -1,0 +1,73 @@
+<meta charset="utf-8">
+<script>
+
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+		for (var i = 0; i < pulos; i++) {
+			
+			document.write("<br>");
+		}
+	}
+
+	//Método para exibir uma mensagem no documento HTML
+	function mostra(mensagem) {
+		
+		if(mensagem != null){
+
+			document.write(mensagem);
+			pulaLinha(1);
+		}
+	}
+
+	function calculaImc(peso, altura) {
+		
+		return peso / (altura * altura);
+	}
+
+    /*var peso_1 = prompt("Informe o peso 1");
+
+    var altura_1 = prompt("Informe a altura 1");
+
+    var peso_2 = prompt("Informe o peso 2");
+
+    var altura_2 = prompt("Informe a altura 2");
+
+    var imc_1 = calculaImc(peso_1, altura_1);
+
+    var imc_2 = calculaImc(peso_2, altura_2);
+
+    //Testando interpolação
+    mostra(`O imc 1 é ${imc_1}`);
+
+    mostra("O imc 2 é " + imc_2);
+
+    var totalImc =  imc_1 + imc_2;
+
+    mostra("Somatória de  imc " + totalImc);*/
+
+	var nome = prompt("Informe seu nome");
+	
+	var peso = prompt("Informe o peso 1");
+
+    var altura = prompt("Informe a altura 1");    
+
+    var imc = calculaImc(peso, altura);    
+
+	mostra(`${nome}, o seu imc é ${imc}`);
+
+
+	if(imc >= 18.5 && imc <= 35){
+		
+		mostra(`E é o recomendado`);    	
+    
+    }else if(imc < 18.5){
+    	
+    	mostra(`E está abaixo do recomendado`);
+
+    }else if(imc > 35){
+
+    	mostra(`E está acima do recomendado`);    		
+    }
+
+</script>

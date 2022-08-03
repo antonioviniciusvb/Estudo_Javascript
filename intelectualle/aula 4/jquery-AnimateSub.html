@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>jQuery</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				
+				$('p').animate({fontSize:150},8500, function(){
+					$(this).css({'color':'#ff0000'});
+				});			
+				
+			});
+			
+		</script>
+	</head>
+	
+	<body>		
+		<p>texto texto</p>
+	</body>
+</html>

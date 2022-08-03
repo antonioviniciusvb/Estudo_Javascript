@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Form </title>
+		<meta charset="utf-8">
+		<script src="script.js" type="text/javascript"></script>
+		<style>
+			label{
+				
+				display: inline-block;
+				width: 200px;
+				text-align: right;
+			}
+			
+			textarea{
+				height: 100px;
+			}
+			
+			textarea,			
+			input[type=text]{
+				width: 300px;
+			}
+			
+			input[type=submit]{
+				margin-left: 205px;
+			}
+			
+			label{
+				display: inline-block;
+				width: 200px;
+				text-align: right;
+				position: relative;
+			}
+			
+			label span{
+				position: absolute;
+				width: 303px;
+				left:18px;
+				top: -10px;
+				font-size: 11px;
+			}
+			
+		</style>
+		
+		
+	</head>
+	
+	 <form name="contato">
+		 <p>
+			 <label>Nome:</label>
+			 <input name="nome" type="text">
+		 </p>
+		 <p>
+			 <label>E-mail:</label>
+			 <input name="email" type="text">
+		 </p>
+		 <p>
+			 <label>Telefone:</label>
+			 <input name="telefone" type="text" class="number">
+		 </p>
+		 <p>
+		 	<label>Assunto:</label>
+			 <input name="assunto" type="text">
+		 </p>
+		 <p>
+			 <label>Mensagem:</label>
+			 <textarea name="msgm"></textarea>
+		 </p>
+		 <p>
+		 <input type="submit" name="Enviar" value="enviar">
+		 </p>
+		
+	
+	 </form>
+		
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<canvas ></canvas>
+
+<script>
+    
+
+    function setPaintFillStyle(color = "black"){
+
+        paint.fillStyle = color;
+
+    }
+
+    function drawRect(x, y, width, height, color = "black"){
+
+        setPaintFillStyle(color);
+        paint.fillRect(x, y, width, height);
+
+    }
+
+    function resetPath(){
+        
+        paint.beginPath();
+
+    }
+
+    function drawTriangle(x, y, lineOneX, lineOneY, lineTwoX, lineTwoY, color = "black"){
+
+        setPaintFillStyle(color);
+        resetPath();
+        paint.moveTo(x, y);
+        paint.lineTo(lineOneX, lineOneY);
+        paint.lineTo(lineTwoX, lineTwoY);
+        paint.fill();
+    }
+
+
+    function drawArc(x, y, radius, iniAngle, endAngle,  color = "black"){
+
+        setPaintFillStyle(color);        
+        resetPath();        
+        paint.arc(x, y, radius, iniAngle, endAngle);
+        paint.fill();
+    }
+
+    var widthScreen = 600, heightScreen = 400;
+
+    //Screen
+    var screen = document.querySelector("canvas");
+    screen.width = widthScreen;
+    screen.height = heightScreen;
+
+    //Paint
+    var paint = screen.getContext("2d");
+    
+    drawRect(0, 0, widthScreen, heightScreen, "lightblue");
+
+    drawRect(0, 0, 200, heightScreen, "green");
+
+    drawRect(400, 0, 200, heightScreen, "red");
+
+    drawTriangle(widthScreen / 2, heightScreen / 2, 200, 400, 400, 400, "yellow");
+
+    drawArc(widthScreen / 2, heightScreen / 2, 50, 0,  2 * 3.14, "blue");
+
+
+</script>

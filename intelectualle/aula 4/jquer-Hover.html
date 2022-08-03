@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>jQuery</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				
+				$('div').hover(
+					function(){
+						$(this).css(
+							{
+								'width': '400px',
+								'height':'400px'});
+					},					
+					function(){
+						$(this).css(
+							{
+								'width': '200px',
+								'height':'200px'});
+					}
+				);
+						
+			});
+			
+		</script>
+		
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background: #000;
+			}
+			
+			
+		</style>
+	</head>
+	
+	<body>		
+		<div></div>
+	</body>
+</html>

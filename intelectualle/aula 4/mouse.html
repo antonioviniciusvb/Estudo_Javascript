@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>jQuery</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			window.onload = function(){
+				function log(obj){
+					var text ='';
+					for(i in obj){
+						text += i +': '+ obj[i]+'\n';
+					}
+					console.log(text);
+				}
+				
+				window.onmousemove = function(event){
+					//log(event);
+					var xx = document.querySelector('#xx');
+					var yy = document.querySelector('#yy');
+					xx.textContent = event.clientX;
+					yy.textContent = event.clientY;
+				}
+			}
+			
+		</script>
+	</head>
+	
+	<body>		
+		<p style="position:fixed">Coordenadas do mouse X:<span id="xx"></span> e Y:<span id="yy"></span></p>
+	</body>
+</html>

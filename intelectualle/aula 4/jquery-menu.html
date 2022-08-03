@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Menu</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				
+				$(document).scroll(function(){
+					var top = $(this).scrollTop();
+					var menu = $('.nav');
+					
+					if(top < 160){
+						menu.css({'position':'relative','top':0, left:0});
+					}else{
+						menu.css({'position':'fixed','top':0, left:0});
+					}
+				});
+			});
+			
+		</script>
+		<style>
+			
+			
+			.box{
+				width: 1000px;
+				margin: 0 auto;
+				
+			}
+			
+			.nav{
+				display: block;
+				width: 100%;
+				list-style: none;
+				background: #000;
+				margin: 0;
+			}
+			
+			.nav li{
+				display: inline-block;
+				padding: 10px;				
+			}
+			.nav li a{
+				color: #fff;
+				text-decoration: none;
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		<ul class="nav">
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Quem Somos</a></li>
+		<li><a href="#">Serviços</a></li>
+		<li><a href="#">Blog</a></li>
+		<li><a href="#">Contato</a></li>
+		</ul>
+		
+		
+		
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget vehicula felis. Quisque eleifend odio at lorem accumsan congue. Ut dapibus enim id ante blandit tristique. Vestibulum maximus consectetur ligula, at pellentesque sapien condimentum eu. Integer lobortis interdum pellentesque. Maecenas nec egestas erat, id rhoncus nisi. Vivamus volutpat, tortor a dignissim malesuada, ipsum massa tincidunt orci, ac faucibus diam lectus sed lorem.</p>
+	</body>
+</html>

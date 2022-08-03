@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Toggle</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				$('.box').on('click', function(){
+					$(this).toggleClass('active');
+				});
+				
+			});
+			
+		</script>
+		<style>
+			
+			.box{
+				width: 400px;
+				height: 400px;
+				background: #000;
+				transition: all 0.8s;
+			}
+			
+			.box.active{background: #ff0000;border: 10px solid #000;}
+		</style>
+		
+	</head>
+	
+	<body>		
+		<div class="box"></div>
+	</body>
+</html>

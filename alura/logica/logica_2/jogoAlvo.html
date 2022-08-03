@@ -1,0 +1,107 @@
+<canvas></canvas>
+<script>
+
+    function setCanvasFillStyle(color = "black") {
+
+        paint.fillStyle = color;
+    }
+
+    function drawArc(x = 0, y = 0, radius = 10, color = "black") {
+
+        setCanvasFillStyle(color);
+        paint.beginPath();
+        paint.arc(x, y, radius, 0, 2 * Math.PI);
+        paint.fill();
+    }
+
+    function drawRect(x = 0, y = 0, width, height, color = "black", colorBorder = "black") {
+
+        setCanvasFillStyle(color);
+        paint.fillRect(x, y, width, height);
+        paint.strokeStyle = colorBorder;
+        paint.strokeRect(x, y, width, height);
+    }
+
+    function setDimensionScreen(width, height) {
+
+        screen.width = width;
+        screen.height = height;
+    }
+
+    function drawTarget(x, y) {
+
+        drawArc(x, y, radius + 20, "red");
+        drawArc(x, y, radius + 10, "white");
+        drawArc(x, y, radius, "red");
+    }
+
+    function clearScreen() {
+
+        paint.clearRect(0, 0, widthScreen, heightScreen);
+    }
+
+    function setRandomPositionTarget() {
+
+        xRandom = getRndInteger(50, widthScreen - 50);
+        yRandom = getRndInteger(50, heightScreen - 50);
+    }
+
+    function getRndInteger(min, max) {
+
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function refreshScreen() {
+
+        clearScreen();
+        setRandomPositionTarget();
+        drawTarget(xRandom, yRandom);
+
+        // console.log(`x${xRandom} - y ${yRandom}`);
+    }
+
+
+    function shot(event) {
+
+        var x = event.pageX - screen.offsetLeft;
+        var y = event.pageY - screen.offsetTop;
+
+        // lógica de acerto?
+        if (hitTheTarget(x, y)) {
+
+            alert("Hit the target.");
+        }
+    }
+
+    function hitTheTarget(x, y) {
+
+        return ((x >= xRandom - radius && x <= xRandom + radius) && 
+                (y >= yRandom - radius && y <= yRandom + radius));
+    }
+
+
+    //#region Variables
+    var radius = 10, randomInterval = 0;
+    var widthScreen = 600, heightScreen = 400;
+    var xRandom = 0, yRandom = 0;
+
+    //Get canvas 
+    var screen = document.querySelector("canvas");
+
+    //Get Paint
+    var paint = screen.getContext("2d");
+
+
+    //#endregion
+
+    setDimensionScreen(widthScreen, heightScreen);
+
+    randomInterval = getRndInteger(1000, 2000);
+
+    console.log(randomInterval);
+
+    setInterval(refreshScreen, randomInterval);
+
+    screen.onclick = shot;
+
+</script>

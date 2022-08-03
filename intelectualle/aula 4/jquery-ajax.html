@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Acordion</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+				
+				var url = "http://viacep.com.br/ws/";
+				$('input[name="cep"]').on('change', function(){
+					var cep = $(this).val();
+					if(cep && cep.length == 8){
+						var conecta = $.ajax({
+							url: url+cep+"/json",
+							method:"GET",
+							dataType:'html'
+						});
+						
+						    conecta.done(function(infos){
+							var dados = JSON.parse(infos);
+							
+							$('input[name=logradouro]').val(dados.logradouro);
+							$('input[name=complemento]').val(dados.complemento);
+							$('input[name=bairro]').val(dados.bairro);
+							$('input[name=localidade]').val(dados.localidade);
+							$('select[name=uf] option').removeAttr('selected');
+							$('select[name=uf] option[value='+dados.uf+']').attr('selected', 'selected');
+							$('input[name=numero]').focus();
+							
+							
+						});
+						
+						conecta.fail(function(jqXHR, textStatus){
+							alert('Erro de conexão.');
+						});
+						
+					}else{
+						alert('cep inválido, obrigatório 8 números!');
+					}
+				});
+			});
+			
+		</script>
+		<style>
+		
+			
+		</style>
+	</head>
+	
+	<body>		
+	
+		<form>
+			<p>
+				<label>CEP:</label><br>
+				<input type="text" name="cep">
+			</p>
+			
+			<p>
+				<label>Logradouro</label><br>
+				<input type="text" name="logradouro">
+			</p>
+			
+			<p>
+				<label>Número:</label><br>
+				<input type="text" name="numero">
+			</p>
+			
+			<p>
+				<label>Complemento:</label><br>
+				<input type="text" name="com">
+			</p>
+			
+			<p>
+				<label>Info:</label><br>
+				<input type="text" name="complemento">
+			</p>
+			
+			<p>
+				<label>Bairro:</label><br>
+				<input type="text" name="bairro">
+			</p>
+			
+			<p>
+			<label>Cidade:</label><br>
+			
+				<input type="text" name="localidade">
+		    </p>
+			<label>Estado:</label><br>
+			<select name="uf">
+				<option value="AC">Acre</option>
+				<option value="AL">Alagoas</option>
+				<option value="AP">Amapá</option>
+				<option value="AM">Amazonas</option>
+				<option value="BA">Bahia</option>
+				<option value="CE">Ceará</option>
+				<option value="DF">Distrito Federal</option>
+				<option value="ES">Espírito Santo</option>
+				<option value="GO">Goiás</option>
+				<option value="MA">Maranhão</option>
+				<option value="MT">Mato Grosso</option>
+				<option value="MS">Mato Grosso do Sul</option>
+				<option value="MG">Minas Gerais</option>
+				<option value="A)">Pará </option>
+				<option value="PB">Paraíba</option>
+				<option value="PR">Paraná</option>
+				<option value="PE">Pernambuco</option>
+				<option value="PI">Piauí</option>
+				<option value="RJ">Rio de Janeiro</option>
+				<option value="RN">Rio Grande do Norte</option>
+				<option value="RS">Rio Grande do Sul</option>
+				<option value="RO">Rondônia</option>
+				<option value="RR">Roraima</option>
+				<option value="SC">Santa Catarina</option>
+				<option value="SP">São Paulo</option>
+				<option value="SE">Sergipe</option>
+				<option value="TO">Tocantins</option>
+				</p>
+ 		</form>
+	
+	</body>
+</html>

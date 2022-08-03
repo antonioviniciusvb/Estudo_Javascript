@@ -1,0 +1,48 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.banner{
+	width: 1000px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.banner img{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.banner .item{
+	display: none;
+	margin-bottom: 10px;
+	box-shadow: 0 0 5px #000;
+}
+
+.banner .item.active{
+	display: block;
+}
+
+.banner .nav{
+	list-style: none;
+	display: inline-block;
+}
+
+.banner .nav li{
+	display: inline-block;
+	margin: 0 5px;
+	background: #fff;
+	border: 2px solid #000;
+	border-radius: 40px;
+	width: 20px;
+	height: 20px;
+	text-indent: -9999px;
+	cursor: pointer;
+	
+}
+
+.banner .nav li.active{
+	background: #000;
+}

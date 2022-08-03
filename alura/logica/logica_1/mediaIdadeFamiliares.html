@@ -1,0 +1,54 @@
+<meta charset="UTF-8">
+<script>
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+        for (var i = 0; i < pulos; i++) {
+            
+            document.write("<br>");
+        }
+    }
+
+    //Método para exibir uma mensagem no documento HTML
+    function mostra(mensagem) {
+
+        if(mensagem != null){
+
+            document.write(mensagem);
+            pulaLinha(1);
+        }
+    }
+
+    var familiares = parseInt(prompt("Qual a quantidade de familiares ?"));
+
+    while(isNaN(familiares)){
+        
+        alert("Valor invalido! Insira um número valido");
+
+        familiares = parseInt(prompt("Qual a quantidade de familiares ?"));
+    }
+   
+    var totalIdade = 0;
+
+    for (let count = 0; count < familiares; count++) {
+        
+        var auxIdade = parseInt(prompt(`Digite a idade do ${count + 1}º familiar ?`));
+     
+        while(isNaN(auxIdade)){
+        
+         alert("Valor invalido! Insira um número valido");
+
+         auxIdade = parseInt(prompt("Qual a quantidade de familiares ?"));
+
+        }
+
+        totalIdade += auxIdade;
+    }
+
+    var mediaIdade = totalIdade / familiares;
+
+    mostra(`A media de Idade dos familiares é ${mediaIdade}`);
+    
+
+
+</script>

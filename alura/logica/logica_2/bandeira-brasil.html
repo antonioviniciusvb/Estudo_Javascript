@@ -1,0 +1,26 @@
+<script src="draw.js"></script>
+<canvas ></canvas>
+
+<script>
+
+    var widthScreen = 1000, heightScreen = 600;
+
+    //Screen
+    var screen = document.querySelector("canvas");
+    screen.width = widthScreen;
+    screen.height = heightScreen;
+
+    //Paint
+    var paint = screen.getContext("2d");
+
+    //bakcground
+    drawRect(paint, 0, 0, widthScreen, heightScreen, "green");
+    
+    drawTriangle(paint, 50, heightScreen / 2, widthScreen / 2, 570, widthScreen / 2, 30, "yellow");
+    
+    drawTriangle(paint, widthScreen - 50, heightScreen / 2, widthScreen / 2, 570, widthScreen / 2, 30, "yellow");
+    
+    drawArc(paint, widthScreen / 2, heightScreen / 2, 180, 0,  2 * 3.14, "blue");
+
+
+</script>

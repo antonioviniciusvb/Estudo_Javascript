@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Objetos</title>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+			
+		var Carro = {
+			
+			marca:'Renault',
+			modelo:'Logan',
+			ipva: 'valor("rb15")',
+			
+			
+			dimensoes:{
+				c:"4.250mm",
+				l:"1.735mm",
+				h:"1.525mm"
+			}
+		}
+			
+		//alert(Carro.marca);
+		
+		var msg = '', k;
+			
+			//foreach em javascript
+			for(k in Carro){
+				msg += k + ":" + Carro[k] + '\n';
+			}
+			
+			//alert(msg);
+			
+			
+			console.log(msg);
+			
+			
+			
+		</script>
+	</head>
+	
+	<body>		
+	</body>
+</html>

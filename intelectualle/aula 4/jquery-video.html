@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>jQuery</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+		
+					var meuMp3 = document.getElementById('meuMp3');	
+					var click = 1;
+					$('#playPause').on('click', function(){
+						if(click == 1){
+						meuMp3.play();
+						$(this).attr('src','pause.png');
+						click = 2;
+							
+					}else{
+						meuMp3.pause();
+						$(this).attr('src','play.png');
+						click = 1;
+					}			   					   
+			});
+				
+				
+				var divLinha = $('#linha');
+				var pontoLinha;
+				//console.log(divLinha.width());
+					var m,s;
+				var linha = setInterval(function(){
+				
+					m = parseInt(meuMp3.currentTime / 60);
+					s = parseInt(meuMp3.currentTime % 60);
+					$('#time').text(m+':'+s);
+					//console.log(meuMp3.currentTime)
+					pontoLinha = (divLinha.width()/meuMp3.duration)* meuMp3.currentTime;
+					
+					divLinha.children('div').css({left:pontoLinha});
+				},100);
+				
+				
+				var pontoLinhaClick;
+				divLinha.on('click', function(event){
+					pontoLinhaClick = event.clientX - $(this).offset().left;
+					divLinha.children('div').css({left:pontoLinhaClick});
+					meuMp3.currentTime = (meuMp3.duration / divLinha.width())*pontoLinhaClick
+				});
+					
+				
+				var guardaVolume;
+				var muteVolume = 1;
+				
+				$('#muteVolume').on('click', function(){
+					if(muteVolume == 1){
+							$(this).attr('src', 'mute.png');
+							guardaVolume = meuMp3.volume;
+							meuMp3.volume = 0;
+							muteVolume = 2;
+					}else{
+						
+						$(this).attr('src', 'volume.png');
+						meuMp3.volume = guardaVolume;
+						muteVolume = 1;
+					}
+				
+			});
+				
+				var pontoVolume;
+				var volumeConta;
+				$('#volume').on('click', function(){
+					pontoVolume = event.clientX - $(this).offset().left;
+					if(pontoVolume > $(this).width()){
+						pontoVolume = $(this).width();
+					}
+					
+					$(this).children('div').css({left:pontoVolume});
+					volumeConta = parseFloat((1/ $(this).width()) * pontoVolume);
+					meuMp3.volume = volumeConta;
+					guardaVolume = meuMp3.volume;
+				});
+				
+				var pontoVolumeInicial = $('#volume').width()/1 * meuMp3.volume;
+				
+				$('#volume div').css({left:pontoVolumeInicial});
+			
+			$('#full').on('click', function(){
+				if(meuMp3.webkitEnterFullscreen)
+					meuMp3.webkitEnterFullscreen();
+				else if(meuMp3.mozRequestFullScreen)
+					meuMp3.mozRequestfULLScreen();
+				else if(meuMp3.msRequestFullscreen)
+					meuMp3.msRequestFullscreen();
+				
+			
+			});
+				
+		});
+			
+		</script>
+		
+		<style>
+			#volume, #linha{
+				display: inline-block;
+				width: 500px;
+				height: 10px;
+				background: #000;
+				border-radius: 10px;
+				position: relative;
+				top: -19px;
+				margin: 0 10px;
+			}
+			#linha div{
+				display: block;
+				width: 5px;
+				height: 24px;
+				background: #ff0000;
+				border-radius: 30px;
+				position: relative;
+				top: -7px;
+				
+			}
+			
+			#volume div, #linha div{
+				display: block;
+				width: 5px;
+				height: 24px;
+				background: #ff0000;
+				border-radius: 30px;
+				position: relative;
+				top: -7px;
+			}
+			
+			#volume{
+				width: 200px;
+			  
+			}
+			
+			#volume div{
+				width: 30px;
+				height: 30px;
+				background-color: blue;
+				border: 2px solid #000;
+				top: -11px;
+				margin-left: 0px;
+			}
+			
+			#time{
+				display: inline-block;
+				font-size: 20px;
+				font-size: arial;
+				background: #ccc;
+				padding: 5px 6px;
+				line-height: 100%;
+				border-radius: 30px;
+				position: relative;
+				margin: 0 10px;
+			    top:-17px;	
+			}
+			
+			#full{
+				margin: -13px 0 0 30px;
+				cursor: pointer;
+			}
+			
+		</style>
+	</head>
+	
+	<body>		
+		<video id="meuMp3" width="600" height="450" >
+			<source src="video.mp4" type="video/mp4">
+		</video>
+		
+		<br>
+		<img src="play.png" id="playPause">
+		
+		<div id="linha">
+			<div></div>
+		</div>
+		
+		<div id="time"></div>
+		
+		<img src="volume.png" id="muteVolume">
+		
+		<div id="volume">
+			<div></div>
+		</div>
+		
+		<img src="full.png" id="full" width="40">
+			
+	</body>
+</html>

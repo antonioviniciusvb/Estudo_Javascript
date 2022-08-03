@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<script>
+
+	//Método para pular linhas
+	function pulaLinha(pulos) {
+
+		for (var i = 0; i < pulos; i++) {
+			
+			document.write("<br>");
+		}
+	}
+
+	//Método para exibir uma mensagem no documento HTML
+	function mostra(mensagem) {
+		
+		if(mensagem != null){
+
+			document.write(mensagem);
+			pulaLinha(1);
+		}
+	}
+
+	function calculaImc(peso, altura) {
+		
+		return peso / (altura * altura);
+	}
+
+    var vitoria = prompt("Entre com o número de Vitórias");
+    var empate = prompt("Entre com o número de Empates");
+    //var derrota = prompt("Entre com o número de Derrotas");
+	
+	var pontos = (parseInt(vitoria) * 3) + parseInt(empate);
+
+   	mostra(`O seu Time fez ${pontos} pontos.`);
+
+	if(pontos < 28){
+
+		mostra("Seu time está pior que o ano passado");
+
+	}else if (pontos > 28) {
+
+		mostra("Seu time está melhor que o ano passado");	
+
+  	}else{
+
+		mostra("Seu time está igual ao ano passado.");
+  	} 
+  		
+	
+
+    
+
+     
+
+</script>

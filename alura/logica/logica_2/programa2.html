@@ -1,0 +1,37 @@
+<script src="draw.js"></script>
+<canvas></canvas>
+
+<script>
+
+    var widthScreen = 600, heightScreen = 400;
+
+    //Screen
+    var screen = document.querySelector("canvas");
+    screen.width = widthScreen;
+    screen.height = heightScreen;
+
+    //Paint
+    var paint = screen.getContext("2d");
+    var xRect = 0, yRect = 0, widthRect = heightRect = 50;
+
+
+    while (xRect < widthScreen) {
+
+        drawRect({ canvas: paint, x: xRect, y: yRect, width: widthRect, height: heightRect, color: "red", colorBorder: "black" });
+
+        xRect = updatePos({ position: xRect, size: widthRect });
+    }
+
+
+    // yRect = updatePos({position: yRect, size: heightRect});
+
+    // xRect = updatePos({position: xRect, size: widthRect});
+
+    function updatePos({ position, size }) {
+
+        return position = position + size;
+
+    }
+
+
+</script>
